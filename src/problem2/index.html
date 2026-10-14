@@ -1,27 +1,20 @@
-<html>
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fancy Form</title>
-
-  <!-- You may add more stuff here -->
-  <link href="style.css" rel="stylesheet" />
-</head>
-
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f4f3ee"><meta name="description" content="A simple currency swap demo for the 99Tech frontend challenge."><title>Orbit — Currency swap</title><link rel="stylesheet" href="./style.css"></head>
 <body>
-
-  <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
-  <form onsubmit="return !1">
-    <h5>Swap</h5>
-    <label for="input-amount">Amount to send</label>
-    <input id="input-amount" />
-
-    <label for="output-amount">Amount to receive</label>
-    <input id="output-amount" />
-
-    <button>CONFIRM SWAP</button>
-  </form>
-  <script src="script.js"></script>
-</body>
-
-</html>
+<header class="header"><a class="brand" href="./"><span aria-hidden="true">◎</span> orbit.</a><span class="header-note">A little less friction. A little more flow.</span><span class="demo-pill">● Demo environment</span></header>
+<main>
+<section class="intro"><div class="eyebrow">MOVE AT YOUR OWN PACE</div><h1>New currency.<br>Same possibility<span>.</span></h1><p>A simple way to explore your next swap.<br>Choose your assets. We'll do the math.</p><div class="intro-foot"><span aria-hidden="true">✳</span><span>LESS IN THE WAY.<br>MORE ON THE HORIZON.</span></div></section>
+<section class="swap-card" aria-labelledby="swap-heading">
+<div class="card-heading"><div><span class="eyebrow">YOUR NEXT MOVE</span><h2 id="swap-heading">Make a swap</h2></div><span class="step">01 / 02</span></div>
+<div id="price-status" class="price-status" role="status">Loading reference prices…</div>
+<form id="swap-form" novalidate>
+<div class="asset-panel"><div class="panel-top"><label for="input-amount">You send</label><span id="send-usd">— USD</span></div><div class="asset-controls"><input id="input-amount" inputmode="decimal" autocomplete="off" placeholder="0.00" aria-describedby="amount-error" disabled><div class="token-picker"><img id="from-icon" alt="" hidden><label class="sr-only" for="from-currency">Currency to send</label><select id="from-currency" disabled></select></div></div></div>
+<div class="direction-wrap"><button type="button" id="reverse" class="direction" aria-label="Reverse currencies" disabled>↓↑</button></div>
+<div class="asset-panel receive"><div class="panel-top"><label for="output-amount">You receive</label><span>Estimated amount</span></div><div class="asset-controls"><input id="output-amount" placeholder="0.00" readonly tabindex="-1"><div class="token-picker"><img id="to-icon" alt="" hidden><label class="sr-only" for="to-currency">Currency to receive</label><select id="to-currency" disabled></select></div></div></div>
+<p id="amount-error" class="error" aria-live="polite"></p><div class="rate-row"><span>Exchange rate</span><strong id="rate">—</strong></div><div class="rate-row"><span>Service fee</span><strong>Free <span class="small-badge">DEMO</span></strong></div>
+<button id="submit" class="primary" type="submit" disabled><span>Review swap</span><span aria-hidden="true">↗</span></button></form>
+<div id="review" hidden><div class="review-mark" aria-hidden="true">↗</div><h3>One last look.</h3><p>You're about to simulate this swap.</p><div id="review-summary" class="review-summary"></div><p class="fine-print">No wallet is connected. No funds will move.</p><button id="confirm" class="primary" type="button">Confirm demo swap</button><button id="back" class="text-button" type="button">← Edit swap</button></div>
+<div id="success" hidden role="status" tabindex="-1"><div class="review-mark" aria-hidden="true">✓</div><h3>You're all set.</h3><p id="success-summary"></p><p class="fine-print">Simulation complete. No real transaction was made.</p><button id="again" class="primary" type="button">Make another swap ↗</button></div>
+<div class="card-footer">◇ &nbsp; Clear rates. No surprises.</div></section></main>
+<footer class="footer"><span>© Orbit · A frontend exploration</span><span>Reference prices · Simulated transactions</span><button id="retry" class="text-button" type="button">Refresh prices ↻</button></footer><script type="module" src="./script.js"></script>
+</body></html>
